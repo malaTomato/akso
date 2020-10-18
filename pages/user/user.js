@@ -5,6 +5,20 @@ Page({
     date: '10/14',
     show: false,
   },
+
+  toNews:function(){
+    wx.navigateTo({
+      url: '/pages/news/news',
+    })
+  },
+
+  toQuestion:function(){
+    wx.navigateTo({
+      url: '/pages/question/question',
+    })
+  },
+
+
   onDisplay() {
     this.setData({ show: true });
   },

@@ -3,17 +3,20 @@
 
 <view class="baseInfo">
   <van-cell-group title="基本信息填写">
-    <van-cell title="患者姓名" value="张三" />
-    <van-cell title="年龄" value="12" />
-    <van-cell title="手术时间" label="填写最近一次" value="{{ date }}" bind:click="onDisplay" />
+
+
+    <van-field value="{{ username }}" required clearable label="患者姓名" icon="question-o" placeholder="请输入用户名"
+      bind:click-icon="onClickIcon" />
+    <van-field value="{{ username }}" required clearable label="年龄" icon="question-o" placeholder="请输入年龄"
+      bind:click-icon="onClickIcon" />
+
+    <van-cell title="手术时间" required label="填写最近一次" value="{{ date }}" bind:click="onDisplay" />
     <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
   </van-cell-group>
 
 </view>
 <view class="detail">
   <van-cell-group title="问卷内容填写">
-    <van-cell title="单元格" value="内容" />
-
 
     <van-radio-group value="{{ radio }}" bind:change="onChange">
       <van-cell title="1问卷标题" value="(单选)" />
@@ -35,8 +38,13 @@
       <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ false }}" bind:change="onChange" />
     </van-cell-group>
 
-
   </van-cell-group>
-  <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)">
-  确认无误后提交</van-button>
+
+
+  <van-row>
+    <van-col offset="12" span="12">
+      <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)">确认无误后提交</van-button>
+    </van-col>
+  </van-row>
+
 </view>

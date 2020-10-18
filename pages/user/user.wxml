@@ -21,20 +21,25 @@
 
 
   <van-col span="24" id="mid">
-    <van-divider contentPosition="center">调查问卷</van-divider>
+    <van-divider contentPosition="left">调查问卷</van-divider>
     <van-notice-bar left-icon="volume-o" text="您有一张问卷尚未填写，请尽快填写" />
     <van-cell-group>
-      <van-cell title="调查问卷一《wxxxxxxxx的调查》" />
-      <van-cell title="调查问卷二《wxxxxxxxx的调查》" />
-      <van-cell title="调查问卷三《wxxxxxxxx的调查》" />
+      <van-cell title="调查问卷一《wxxxxxxxx的调查 " bindtap="toQuestion"/>
+      <van-cell title="调查问卷二《wxxxxxxxx的调查》"  bindtap="toQuestion" />
+      <van-cell title="调查问卷三《wxxxxxxxx的调查》"  bindtap="toQuestion" />
+      <van-cell title="调查问卷四《wxxxxxxxx的调查》"  bindtap="toQuestion" />
+      <van-cell title="调查问卷五《wxxxxxxxx的调查》"  bindtap="toQuestion" />
     </van-cell-group>
   </van-col>
   <van-col span="24" id="boot">
-    <van-divider contentPosition="center">信息展示</van-divider>
+    <van-divider contentPosition="left">健康小知识</van-divider>
     <van-cell-group>
-      <van-cell title="信息展示一，关于XXXX" />
-      <van-cell title="信息展示二，关于XXXX" />
-      <van-cell title="信息展示三，关于XXXX" />
+      <van-cell title="信息展示一，关于XXXX" bindtap="toNews"/>
+      <van-cell title="信息展示二，关于XXXX" bindtap="toNews"/>
+      <van-cell title="信息展示三，关于XXXX" bindtap="toNews"/>
+      <van-cell title="信息展示四，关于XXXX" bindtap="toNews"/>
+      <van-cell title="信息展示五，关于XXXX" bindtap="toNews"/>
+      <van-cell title="信息展示六，关于XXXX" bindtap="toNews"/>
     </van-cell-group>
   </van-col>
 </van-row>
