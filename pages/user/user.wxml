@@ -1,0 +1,40 @@
+<!--pages/user/user.wxml-->
+
+<van-row>
+  <van-col span="24" id="head">
+
+    <var-row>
+      <van-col span="8" id="logo">
+        <van-image round width="100" height="100" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+      </van-col>
+      <van-col span="16">
+        <van-cell-group>
+          <van-cell title="用户名" value="张三" />
+          <van-cell title="手机号" value="176****5555" border="{{ false }}" />
+          <van-cell title="复查时间" label="点击修改" value="{{ date }}" bind:click="onDisplay"/>
+          <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+        </van-cell-group>
+      </van-col>
+    </var-row>
+
+  </van-col>
+
+
+  <van-col span="24" id="mid">
+    <van-divider contentPosition="center">调查问卷</van-divider>
+    <van-notice-bar left-icon="volume-o" text="您有一张问卷尚未填写，请尽快填写" />
+    <van-cell-group>
+      <van-cell title="调查问卷一《wxxxxxxxx的调查》" />
+      <van-cell title="调查问卷二《wxxxxxxxx的调查》" />
+      <van-cell title="调查问卷三《wxxxxxxxx的调查》" />
+    </van-cell-group>
+  </van-col>
+  <van-col span="24" id="boot">
+    <van-divider contentPosition="center">信息展示</van-divider>
+    <van-cell-group>
+      <van-cell title="信息展示一，关于XXXX" />
+      <van-cell title="信息展示二，关于XXXX" />
+      <van-cell title="信息展示三，关于XXXX" />
+    </van-cell-group>
+  </van-col>
+</van-row>

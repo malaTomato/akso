@@ -1,0 +1,42 @@
+<van-divider contentPosition="center">调查问卷</van-divider>
+
+
+<view class="baseInfo">
+  <van-cell-group title="基本信息填写">
+    <van-cell title="患者姓名" value="张三" />
+    <van-cell title="年龄" value="12" />
+    <van-cell title="手术时间" label="填写最近一次" value="{{ date }}" bind:click="onDisplay" />
+    <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+  </van-cell-group>
+
+</view>
+<view class="detail">
+  <van-cell-group title="问卷内容填写">
+    <van-cell title="单元格" value="内容" />
+
+
+    <van-radio-group value="{{ radio }}" bind:change="onChange">
+      <van-cell title="1问卷标题" value="(单选)" />
+      <van-radio name="1">单选框</van-radio>
+      <van-radio name="2">单选框</van-radio>
+      <van-radio name="3">单选框</van-radio>
+      <van-radio name="4">单选框</van-radio>
+    </van-radio-group>
+
+    <van-checkbox-group value="{{ result }}" bind:change="onChangeCheck">
+      <van-cell title="2问卷标题" value="(多选)" />
+      <van-checkbox name="a">复选框 a</van-checkbox>
+      <van-checkbox name="b">复选框 b</van-checkbox>
+      <van-checkbox name="c">复选框 c</van-checkbox>
+    </van-checkbox-group>
+
+    <van-cell-group>
+      <van-cell title="2问卷标题" value="(多选)" />
+      <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ false }}" bind:change="onChange" />
+    </van-cell-group>
+
+
+  </van-cell-group>
+  <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)">
+  确认无误后提交</van-button>
+</view>

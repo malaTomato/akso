@@ -1,0 +1,24 @@
+<!--pages/news/news.wxml-->
+<view class="news-detail-container">
+  <image  mode="aspectFill" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+  <text class="title">{{ currentNews.title }}
+    微信小程序image组件中aspectFill和widthfix模式应用详解
+  </text>
+  <view class="tool">
+    <view class="horizon"></view>
+    <text class="detail">{{ currentNews.desc }}
+      用我们提到的“容器”的观点来理解aspectFill。既然aspectFill一定要填满整个容器，那么首先要让这张图片的整体尺寸是大于这个容器的，就等比例放大图片（任意一边小于容器都需要放大，否则就会留下空白），让图片的某一边刚好接触容器的一边，同时另外一边又不会小于容器（可以超出，因为这一边会被截取）。
+   
+    </text>
+    <image  mode="aspectFill" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+    <text class="detail">{{ currentNews.desc }}
+      用我们提到的“容器”的观点来理解aspectFill。既然aspectFill一定要填满整个容器，那么首先要让这张图片的整体尺寸是大于这个容器的，就等比例放大图片（任意
+    </text>
+    <image  mode="aspectFill" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+    <text class="detail">{{ currentNews.desc }}
+      用我们提到的“容器”的观点来理解aspectFill。既然aspectFill一定要填满整个容器，那么首先要让这张图片的整体尺寸是大于这个容器的，就等比例放大图片（任意一边小于容器都需要放大，否则就会留下空白），让图片的某一边刚好接触容器的一边，同时另外一边又不会小于容器（可以超出，因为这一边会被截取）。
+      用我们提到的“容器”的观点来理解aspectFill。既然aspectFill一定要填满整个容器，那么首先要让这张图片的整体尺寸是大于这个容器的，就等比例放大图片（任意
+
+    </text>
+  </view>
+</view>
