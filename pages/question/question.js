@@ -7,31 +7,35 @@ Page({
 
   data: {
     date: "",
-    
+
     show: false,
     result: ['a', 'b'],
 
-    questions: {
+    record: {
       "name": "《尿道下裂手术阴茎外观满意度随访调查问卷》",
-      "options": [{
+      "questions": [{
+          "id": '1',
           "title": "1.	是否认为自己的阴茎外观与他人不同(   )",
           "type": "radio",
           "require": true,
-          "values": [{
+          "options": [{
               "key": "A",
-              "value": "是"
+              "value": "是",
+              "checked": false
             },
             {
               "key": "B",
               "value": "不是"
             }
-          ]
+          ],
+          "value":''
         },
         {
+          "id": '2',
           "title": "2.	是否认为自己的阴茎外观与他人不同(   )",
           "type": "radio",
           "require": true,
-          "values": [{
+          "options": [{
               "key": "A",
               "value": "是"
             },
@@ -43,31 +47,36 @@ Page({
         },
 
         {
+          "id": '3',
           "title": "3.不满意的主要原因(   )",
           "type": "checkbox",
           "require": true,
-          "name":"1",
-          "values": [{
+          "name": "1",
+          "options": [{
               "key": "A",
-              "value": "龟头小"
-              
+              "value": "龟头小",
+              "checked": false
             },
             {
               "key": "B",
-              "value": "阴茎短小"
-              
+              "value": "阴茎短小",
+              "checked": false
+
             },
             {
               "key": "C",
-              "value": "阴茎弯曲"
+              "value": "阴茎弯曲",
+              "checked": false
             },
             {
               "key": "D",
-              "value": "阴茎头形态异常"
+              "value": "阴茎头形态异常",
+              "checked": false
             },
             {
               "key": "E",
-              "value": "阴茎短粗胖"
+              "value": "阴茎短粗胖",
+              "checked": false
             }
           ]
         }
@@ -85,10 +94,7 @@ Page({
   },
 
   onChange(event) {
-    console.log("---->"+event.detail)
-    // this.setData({
-    //   radio: event.detail
-    // });
+    console.log(event.currentTarget.dataset.id +"选择"+event.detail.value)
   },
 
   onDisplay() {
@@ -120,7 +126,7 @@ Page({
     console.log(options.id)
 
     //根据id 查询问卷调查
-                         
+
 
 
 

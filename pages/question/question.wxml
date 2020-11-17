@@ -1,20 +1,27 @@
 <van-divider contentPosition="center">调查问卷</van-divider>
-
-
 <view>
 
   <template name="radio">
     <p>{{item.title}}(单选)</p>
-    <van-radio-group  bind:change="onChange"  value="{{ item.name }}" >
-      <van-radio wx:for="{{item.values}}"  wx:key="key" name="{{item.key}}">{{item.key}}.{{item.value}}</van-radio>
-    </van-radio-group>
+    <radio-group class="radio-group" bindchange="onChange" data-id="{{item.id}}">
+      <label class="radio" wx:for="{{item.options}}">
+        <radio value="{{item.key}}" checked="{{item.checked}}" />{{item.key}}.{{item.value}}
+      </label>
+    </radio-group>
+
+
   </template>
 
   <template name="checkbox">
     <p>{{item.title}}(多选)</p>
-    <van-checkbox-group value="{{ item.title }}" bind:change="onChangeCheck"  >
-      <van-checkbox wx:for="{{item.values}}" wx:key="key" name="{{ item.title }}">{{item.key}}.{{item.value}}</van-checkbox>
-    </van-checkbox-group>
+
+    <checkbox-group class="radio-group" bindchange="onChange"  data-id="{{item.id}}">
+      <label class="radio" wx:for="{{item.options}}">
+        <checkbox  value="{{item.key}}" checked="{{item.checked}}" />{{item.key}}.{{item.value}}
+      </label>
+    </checkbox-group>
+
+
   </template>
 
 
@@ -22,10 +29,6 @@
 
 </view>
 
-<van-radio-group value="{{ radio }}" bind:change="onChange">
-  <van-radio name="1">单选框 1</van-radio>
-  <van-radio name="2">单选框 2</van-radio>
-</van-radio-group>
 <!-- 
 <view class="baseInfo">
   <van-cell-group title="基本信息填写">
@@ -43,7 +46,7 @@
 </view> -->
 <view class="detail">
   <van-cell-group title="问卷内容填写">
-    <block wx:for="{{questions.options}}" wx:key="key">
+    <block wx:for="{{record.questions}}" wx:key="key">
       <template is="{{item.type}}" data="{{item}}">
       </template>
     </block>
