@@ -10,6 +10,28 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log(res.code);
+        wx.request({
+          url: 'https://akso.design/akso/akso/api/user/getAuthUser',
+          data:{
+            code:res.code
+          },
+          method:'GET',
+          header: {
+            'content-type': 'application/json' // 默认值
+            },
+          success(res){
+            console.log(res.data);
+
+            if(res.data.registerFlag){
+              wx.navigateTo({
+                url: '/pages/index/index',
+              })
+            } 
+            wx.setStorageSync('openid', res.data.openid)
+          }
+          
+        })
       }
     })
     // 获取用户信息

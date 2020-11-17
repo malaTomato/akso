@@ -32,11 +32,12 @@
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
-    "packNpmRelationList": []
+    "packNpmRelationList": [],
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.1",
-  "appid": "wx5bfa869516553f55",
+  "appid": "wx349474d1eba5992c",
   "projectname": "asko",
   "debugOptions": {
     "hidedInDevtools": []

@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/user/user",
     "pages/question/question",
-    "pages/news/news",
     "pages/index/index",
+    "pages/user/user",
+    "pages/news/news",
     "pages/logs/logs"
- 
+
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,10 +24,13 @@
     "van-notice-bar": "@vant/weapp/notice-bar/index",
     "van-calendar": "@vant/weapp/calendar/index",
     "van-radio": "@vant/weapp/radio/index",
-  "van-radio-group": "@vant/weapp/radio-group/index",
-  "van-checkbox": "@vant/weapp/checkbox/index",
-  "van-checkbox-group": "@vant/weapp/checkbox-group/index",
-  "van-field": "@vant/weapp/field/index"
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-popup": "@vant/weapp/popup/index"
   },
   "sitemapLocation": "sitemap.json"
 }

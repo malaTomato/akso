@@ -1,6 +1,32 @@
 <van-divider contentPosition="center">调查问卷</van-divider>
 
 
+<view>
+
+  <template name="radio">
+    <p>{{item.title}}(单选)</p>
+    <van-radio-group  bind:change="onChange"  value="{{ item.name }}" >
+      <van-radio wx:for="{{item.values}}"  wx:key="key" name="{{item.key}}">{{item.key}}.{{item.value}}</van-radio>
+    </van-radio-group>
+  </template>
+
+  <template name="checkbox">
+    <p>{{item.title}}(多选)</p>
+    <van-checkbox-group value="{{ item.title }}" bind:change="onChangeCheck"  >
+      <van-checkbox wx:for="{{item.values}}" wx:key="key" name="{{ item.title }}">{{item.key}}.{{item.value}}</van-checkbox>
+    </van-checkbox-group>
+  </template>
+
+
+
+
+</view>
+
+<van-radio-group value="{{ radio }}" bind:change="onChange">
+  <van-radio name="1">单选框 1</van-radio>
+  <van-radio name="2">单选框 2</van-radio>
+</van-radio-group>
+<!-- 
 <view class="baseInfo">
   <van-cell-group title="基本信息填写">
 
@@ -14,30 +40,13 @@
     <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
   </van-cell-group>
 
-</view>
+</view> -->
 <view class="detail">
   <van-cell-group title="问卷内容填写">
-
-    <van-radio-group value="{{ radio }}" bind:change="onChange">
-      <van-cell title="1问卷标题" value="(单选)" />
-      <van-radio name="1">单选框</van-radio>
-      <van-radio name="2">单选框</van-radio>
-      <van-radio name="3">单选框</van-radio>
-      <van-radio name="4">单选框</van-radio>
-    </van-radio-group>
-
-    <van-checkbox-group value="{{ result }}" bind:change="onChangeCheck">
-      <van-cell title="2问卷标题" value="(多选)" />
-      <van-checkbox name="a">复选框 a</van-checkbox>
-      <van-checkbox name="b">复选框 b</van-checkbox>
-      <van-checkbox name="c">复选框 c</van-checkbox>
-    </van-checkbox-group>
-
-    <van-cell-group>
-      <van-cell title="2问卷标题" value="(多选)" />
-      <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ false }}" bind:change="onChange" />
-    </van-cell-group>
-
+    <block wx:for="{{questions.options}}" wx:key="key">
+      <template is="{{item.type}}" data="{{item}}">
+      </template>
+    </block>
   </van-cell-group>
 
 

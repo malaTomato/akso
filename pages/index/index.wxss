@@ -16,6 +16,13 @@
   color: #aaa;
 }
 
+.Scancode {
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 .usermotto {
   margin-top: 200px;
 }

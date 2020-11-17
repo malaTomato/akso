@@ -1,3 +1,5 @@
+const { formatTime } = require("../../utils/util");
+const { formatDate } = require("../../utils/util");
 // pages/user/user.js
 Page({
 
@@ -6,13 +8,13 @@ Page({
     show: false,
   },
 
-  toNews:function(){
+  toNews: function () {
     wx.navigateTo({
       url: '/pages/news/news',
     })
   },
 
-  toQuestion:function(){
+  toQuestion: function () {
     wx.navigateTo({
       url: '/pages/question/question',
     })
@@ -20,35 +22,96 @@ Page({
 
 
   onDisplay() {
-    this.setData({ show: true });
+    this.setData({
+      show: true
+    });
   },
   onClose() {
-    this.setData({ show: false });
+    this.setData({
+      show: false
+    });
   },
   formatDate(date) {
     date = new Date(date);
-    return `${date.getMonth() + 1}/${date.getDate()}`;
+    return formatDate(date);
   },
   onConfirm(event) {
+    var that = this;
+    var changeDate = this.formatDate(event.detail);
+    console.log(changeDate)
+    wx.request({
+      url: 'https://akso.design/akso/akso/api/user/updateOperationDate',
+      method:"POST",
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      data:{
+        "operationDate": changeDate,
+        "openid": wx.getStorageSync('openid')
+      },
+      success(res) {
+        that.setData({
+          'user.operationDate':res.data.operationDate,
+          'user.reviewDate' : res.data.reviewDate
+        })
+      }
+
+
+    })
+
+
     this.setData({
       show: false,
       date: this.formatDate(event.detail),
     });
   },
- 
+
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    'flag':false,
+    'user': {
+      "username": "xxxxx",
+      "phone": "1111",
+      "operationDate": "2020-10-11",
+      "reviewDate":"2020-11-11"
+    },
+    'questionDtoList': [{
+      'id': 1,
+      'title': '《xxxx》'
+    }],
+    'informationDtoList':{
+      'id': 1,
+      'title': '《xxxx》'
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: 'https://akso.design/akso/akso/api/user/userPage',
+      method: 'GET',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      data:{
+        openId:wx.getStorageSync('openid')
+      },
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          user: res.data.user,
+          questionDtoList: res.data.questionDtoList,
+          informationDtoList: res.data.informationDtoList,
+          flag: res.data.flag
+        })
+      }
+    })
   },
 
   /**

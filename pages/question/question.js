@@ -7,9 +7,75 @@ Page({
 
   data: {
     date: "",
-    radio: '1',
+    
     show: false,
     result: ['a', 'b'],
+
+    questions: {
+      "name": "《尿道下裂手术阴茎外观满意度随访调查问卷》",
+      "options": [{
+          "title": "1.	是否认为自己的阴茎外观与他人不同(   )",
+          "type": "radio",
+          "require": true,
+          "values": [{
+              "key": "A",
+              "value": "是"
+            },
+            {
+              "key": "B",
+              "value": "不是"
+            }
+          ]
+        },
+        {
+          "title": "2.	是否认为自己的阴茎外观与他人不同(   )",
+          "type": "radio",
+          "require": true,
+          "values": [{
+              "key": "A",
+              "value": "是"
+            },
+            {
+              "key": "B",
+              "value": "不是"
+            }
+          ]
+        },
+
+        {
+          "title": "3.不满意的主要原因(   )",
+          "type": "checkbox",
+          "require": true,
+          "name":"1",
+          "values": [{
+              "key": "A",
+              "value": "龟头小"
+              
+            },
+            {
+              "key": "B",
+              "value": "阴茎短小"
+              
+            },
+            {
+              "key": "C",
+              "value": "阴茎弯曲"
+            },
+            {
+              "key": "D",
+              "value": "阴茎头形态异常"
+            },
+            {
+              "key": "E",
+              "value": "阴茎短粗胖"
+            }
+          ]
+        }
+
+      ]
+    }
+
+
   },
 
   onChangeCheck(event) {
@@ -17,18 +83,23 @@ Page({
       result: event.detail,
     });
   },
-  
+
   onChange(event) {
-    this.setData({
-      radio: event.detail
-    });
+    console.log("---->"+event.detail)
+    // this.setData({
+    //   radio: event.detail
+    // });
   },
 
   onDisplay() {
-    this.setData({ show: true });
+    this.setData({
+      show: true
+    });
   },
   onClose() {
-    this.setData({ show: false });
+    this.setData({
+      show: false
+    });
   },
   formatDate(date) {
     date = new Date(date);
@@ -46,6 +117,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.id)
+
+    //根据id 查询问卷调查
+                         
+
+
+
 
   },
 
