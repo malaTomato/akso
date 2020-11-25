@@ -1,6 +1,16 @@
-const { formatTime } = require("../../utils/util");
-const { formatDate } = require("../../utils/util");
+const {
+  formatTime
+} = require("../../utils/util");
+const {
+  formatDate
+} = require("../../utils/util");
+const {
+  failToIndex
+} = require("../../utils/util");
 // pages/user/user.js
+
+const app = getApp()
+
 Page({
 
   data: {
@@ -14,9 +24,9 @@ Page({
     })
   },
 
-  toQuestion: function () {
+  toQuestion: function (event) {
     wx.navigateTo({
-      url: '/pages/question/question',
+      url: '/pages/question/question?id=' + event.currentTarget.dataset.id,
     })
   },
 
@@ -39,20 +49,23 @@ Page({
     var that = this;
     var changeDate = this.formatDate(event.detail);
     console.log(changeDate)
+
+    var url = app.globalData.baseUrl + "/api/user/updateOperationDate"
+
     wx.request({
-      url: 'https://akso.design/akso/akso/api/user/updateOperationDate',
-      method:"POST",
+      url: url,
+      method: "POST",
       header: {
         'content-type': 'application/json' // 默认值
       },
-      data:{
+      data: {
         "operationDate": changeDate,
         "openid": wx.getStorageSync('openid')
       },
       success(res) {
         that.setData({
-          'user.operationDate':res.data.operationDate,
-          'user.reviewDate' : res.data.reviewDate
+          'user.operationDate': res.data.operationDate,
+          'user.reviewDate': res.data.reviewDate
         })
       }
 
@@ -71,20 +84,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    'flag':false,
+    'flag': false,
     'user': {
-      "username": "xxxxx",
-      "phone": "1111",
-      "operationDate": "2020-10-11",
-      "reviewDate":"2020-11-11"
+      "username": "",
+      "phone": "",
+      "operationDate": "",
+      "reviewDate": ""
     },
     'questionDtoList': [{
       'id': 1,
-      'title': '《xxxx》'
+      'title': ''
     }],
-    'informationDtoList':{
+    'informationDtoList': {
       'id': 1,
-      'title': '《xxxx》'
+      'title': ''
     }
   },
 
@@ -93,14 +106,16 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var url = app.globalData.baseUrl + "/api/user/userPage"
+
     wx.request({
-      url: 'https://akso.design/akso/akso/api/user/userPage',
+      url: url,
       method: 'GET',
       header: {
         'content-type': 'application/json' // 默认值
       },
-      data:{
-        openId:wx.getStorageSync('openid')
+      data: {
+        openId: wx.getStorageSync('openid')
       },
       success(res) {
         console.log(res.data);
@@ -109,6 +124,12 @@ Page({
           questionDtoList: res.data.questionDtoList,
           informationDtoList: res.data.informationDtoList,
           flag: res.data.flag
+        })
+      },
+      fail() {
+        console.log('请求失败，跳转到首页')
+        wx.navigateTo({
+          url: '/pages/index/index',
         })
       }
     })

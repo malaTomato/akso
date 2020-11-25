@@ -1,1 +1,12 @@
 /* pages/question/question.wxss */
+.question{
+  padding: 5%;
+}
+
+.title{
+  font-weight: bold;
+}
+.option{
+ display:flex;
+ padding: 1%;
+}

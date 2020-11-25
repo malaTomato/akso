@@ -23,10 +23,10 @@
 
 
   <van-col span="24" id="mid">
-    <van-divider contentPosition="left">调查问卷</van-divider>
+    <van-divider contentPosition="left">您有以下调查问卷尚未填写</van-divider>
     <van-notice-bar wx:if="{{flag}}" left-icon="volume-o" text="您有一张问卷尚未填写，请尽快填写" />
     <van-cell-group wx:for-items="{{questionDtoList}}" wx:key="key">
-      <van-cell class="van-ellipsis"  title="{{item.title}}" bindtap="toQuestion"/>
+      <van-cell class="van-ellipsis"  title="{{item.title}}" data-id="{{item.id}}" bindtap="toQuestion"/>
     </van-cell-group>
   </van-col>
   <van-col span="24" id="boot">

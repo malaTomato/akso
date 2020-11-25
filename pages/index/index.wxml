@@ -1,27 +1,42 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view>
+  <view class="userinfo" wx:if="{{!haveInfo}}">
+    <block>
+      <open-data type="groupName" open-gid="xxxxxx"></open-data>
+      <open-data type="userAvatarUrl" class="userinfo-avatar" mode="cover"></open-data>
+      <open-data type="userGender" lang="zh_CN"></open-data>
     </block>
   </view>
-  <view>
+</view>
 
-    <van-field v-model="user.username" label="用户名" placeholder="请输入真实姓名" />
-    <van-field v-model="user.phone" type="tel" label="联系号码" placeholder="手机号" />
+<view class="container" hidden="{{hideLogin}}">
+  <view>
+    <van-field label="用户名" placeholder="请输入真实姓名" data-filed="username" bindinput="changeUserName" />
+    <van-field type="number" label="联系号码" placeholder="手机号" data-filed="phone" bindinput="changePhone" />
     <van-field v-model="user.operationDate" label="手术日期" bindtap="tapName" value="{{user.operationDate}}" />
 
     <van-popup show="{{ show }}" round position="bottom" custom-style="height: 40%;" bind:close="onClose">
       <van-datetime-picker v-model="currentDate" type="date" bind:input="onInput" bind:confirm="onClose"
         bind:cancel="onClose" />
     </van-popup>
-    
+    <view>
+      <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" round type="info" class='Scancode'
+        bind:click="submit">
+        提交信息
+      </van-button>
+    </view>
   </view>
-  <view>
-    <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" round type="info"  class='Scancode' bind:click="submit">
-      提交信息
-    </van-button>
+
+</view>
+
+
+<view class='Scancode' wx:if="{{haveInfo}}">
+  <view class='content'>
+    <view class="textView">
+      <p><b>我们需要获取您的授权信息，以提供更好的服务。</b></p>
+    </view>
+    <view class='btn_block'>
+      <button class='weui-btn' type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击确认授权</button>
+    </view>
   </view>
 </view>

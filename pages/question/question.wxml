@@ -1,26 +1,27 @@
-<van-divider contentPosition="center">调查问卷</van-divider>
 <view>
-
+  <p class="title">{{record.name}}</p>
   <template name="radio">
-    <p>{{item.title}}(单选)</p>
-    <radio-group class="radio-group" bindchange="onChange" data-id="{{item.id}}">
-      <label class="radio" wx:for="{{item.options}}">
-        <radio value="{{item.key}}" checked="{{item.checked}}" />{{item.key}}.{{item.value}}
-      </label>
-    </radio-group>
-
-
+    <view class="question">
+      <p >{{item.title}}(单选)</p>
+      <radio-group class="radio-group" bindchange="onChange" data-id="{{item.id}}">
+        <label class="radio option" wx:for="{{item.options}}" wx:key="key" >
+          <radio value="{{item.key}}" />{{item.key}}.{{item.value}}
+        </label>
+      </radio-group>
+    </view>
   </template>
 
   <template name="checkbox">
-    <p>{{item.title}}(多选)</p>
+    <view class="question">
 
-    <checkbox-group class="radio-group" bindchange="onChange"  data-id="{{item.id}}">
-      <label class="radio" wx:for="{{item.options}}">
-        <checkbox  value="{{item.key}}" checked="{{item.checked}}" />{{item.key}}.{{item.value}}
-      </label>
-    </checkbox-group>
+      <p>{{item.title}}(多选)</p>
 
+      <checkbox-group class="radio-group" bindchange="onChange" data-id="{{item.id}}">
+        <label class="radio option" wx:for="{{item.options}}" wx:key="key" style="display:flex;">
+          <checkbox value="{{item.key}}" />{{item.key}}.{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
 
   </template>
 
@@ -29,23 +30,8 @@
 
 </view>
 
-<!-- 
-<view class="baseInfo">
-  <van-cell-group title="基本信息填写">
-
-
-    <van-field value="{{ username }}" required clearable label="患者姓名" icon="question-o" placeholder="请输入用户名"
-      bind:click-icon="onClickIcon" />
-    <van-field value="{{ username }}" required clearable label="年龄" icon="question-o" placeholder="请输入年龄"
-      bind:click-icon="onClickIcon" />
-
-    <van-cell title="手术时间" required label="填写最近一次" value="{{ date }}" bind:click="onDisplay" />
-    <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
-  </van-cell-group>
-
-</view> -->
 <view class="detail">
-  <van-cell-group title="问卷内容填写">
+  <van-cell-group title="请按实际情况填写">
     <block wx:for="{{record.questions}}" wx:key="key">
       <template is="{{item.type}}" data="{{item}}">
       </template>
@@ -55,7 +41,7 @@
 
   <van-row>
     <van-col offset="12" span="12">
-      <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)">确认无误后提交</van-button>
+      <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" bindtap="submit">确认无误后提交</van-button>
     </van-col>
   </van-row>
 
