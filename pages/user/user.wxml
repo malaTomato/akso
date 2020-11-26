@@ -1,23 +1,52 @@
 <!--pages/user/user.wxml-->
 
+<view class="page__desc">三列均分布局</view>
+    <view>
+        <mp-row>
+          <mp-col span="{{8}}">
+            <view>
+              <view class="col">
+                1
+              </view>
+            </view>
+          </mp-col>
+          <mp-col span="{{8}}">
+            <view>
+              <view class="col">
+                2
+              </view>
+            </view>
+          </mp-col>
+          <mp-col span="{{8}}">
+            <view>
+              <view class="col">
+                3
+              </view>
+            </view>
+          </mp-col>
+        </mp-row>
+</view>
+<var-row style="--main-bg-color: brown;" >
+  <van-col span="7" id="logo">
+    <open-data type="userAvatarUrl" lang="zh_CN" style="border-radius:50%;overflow:hidden;display:block">
+    </open-data>
+  </van-col>
+  <van-col span="16">
+    <van-cell-group>
+      <van-cell title="用户名" value="{{user.username}}" />
+      <van-cell title="手机号" value="{{user.phone}}" border="{{ false }}" />
+      <van-cell title="手术日期" label="点击修改" value="{{ user.operationDate }}" bind:click="onDisplay" />
+      <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+      <van-cell title="复查时间" value="{{user.reviewDate}}" border="{{ false }}" />
+    </van-cell-group>
+  </van-col>
+</var-row>
+
+
 <van-row>
   <van-col span="24" id="head">
 
-    <var-row>
-      <van-col span="8" id="logo">
-        <!-- <van-image round width="100" height="100" src='{{userInfo.avatarUrl}}'  /> -->
-        <open-data type="userAvatarUrl" lang="zh_CN"  style="border-radius:50%;overflow:hidden;display:block"></open-data>
-      </van-col>
-      <van-col span="16">
-        <van-cell-group>
-          <van-cell title="用户名" value="{{user.username}}" />
-          <van-cell title="手机号" value="{{user.phone}}" border="{{ false }}" />
-          <van-cell title="手术日期" label="点击修改" value="{{ user.operationDate }}" bind:click="onDisplay"/>
-          <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
-          <van-cell title="复查时间" value="{{user.reviewDate}}" border="{{ false }}" />
-        </van-cell-group>
-      </van-col>
-    </var-row>
+
 
   </van-col>
 
@@ -26,7 +55,7 @@
     <van-divider contentPosition="left">您有以下调查问卷尚未填写</van-divider>
     <van-notice-bar wx:if="{{flag}}" left-icon="volume-o" text="您有一张问卷尚未填写，请尽快填写" />
     <van-cell-group wx:for-items="{{questionDtoList}}" wx:key="key">
-      <van-cell class="van-ellipsis"  title="{{item.title}}" data-id="{{item.id}}" bindtap="toQuestion"/>
+      <van-cell class="van-ellipsis" title="{{item.title}}" data-id="{{item.id}}" bindtap="toQuestion" />
     </van-cell-group>
   </van-col>
   <van-col span="24" id="boot">

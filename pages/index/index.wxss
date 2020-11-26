@@ -30,6 +30,10 @@
   padding-bottom: 20%;
 }
 
+.btn_block{
+  padding-top: 60%;
+}
+
 view{
   padding: 2%;
 }

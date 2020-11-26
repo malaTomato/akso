@@ -10,3 +10,9 @@
   border: 2px solid #fff;  
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
 } */
+
+
+#head{
+  box-shadow:0px 2px 5px 5px red;
+
+}

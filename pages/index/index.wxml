@@ -32,7 +32,7 @@
 
 <view class='Scancode' wx:if="{{haveInfo}}">
   <view class='content'>
-    <view class="textView">
+    <view class="textView shadowPanel">
       <p><b>我们需要获取您的授权信息，以提供更好的服务。</b></p>
     </view>
     <view class='btn_block'>
