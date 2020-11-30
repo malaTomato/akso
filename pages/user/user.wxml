@@ -1,32 +1,5 @@
 <!--pages/user/user.wxml-->
-
-<view class="page__desc">三列均分布局</view>
-    <view>
-        <mp-row>
-          <mp-col span="{{8}}">
-            <view>
-              <view class="col">
-                1
-              </view>
-            </view>
-          </mp-col>
-          <mp-col span="{{8}}">
-            <view>
-              <view class="col">
-                2
-              </view>
-            </view>
-          </mp-col>
-          <mp-col span="{{8}}">
-            <view>
-              <view class="col">
-                3
-              </view>
-            </view>
-          </mp-col>
-        </mp-row>
-</view>
-<var-row style="--main-bg-color: brown;" >
+<var-row class="order-tabs">
   <van-col span="7" id="logo">
     <open-data type="userAvatarUrl" lang="zh_CN" style="border-radius:50%;overflow:hidden;display:block">
     </open-data>
@@ -45,8 +18,6 @@
 
 <van-row>
   <van-col span="24" id="head">
-
-
 
   </van-col>
 

@@ -16,3 +16,6 @@
   box-shadow:0px 2px 5px 5px red;
 
 }
+van-divider--text {
+  color: black;
+}

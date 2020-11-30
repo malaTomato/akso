@@ -1,6 +1,5 @@
 // pages/question/question.js
 const app = getApp()
-
 Page({
 
   /**

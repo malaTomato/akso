@@ -9,6 +9,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseUrl:"https://akso.utools.club/akso/"
+    baseUrl:"https://akso.utools.club/"
   }
 })
+
+

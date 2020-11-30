@@ -48,19 +48,24 @@ Page({
             'content-type': 'application/json' // 默认值
           },
           success(res) {
-            if (res.data.registerFlag) {
-              console.log("未注册过的用户")
-              that.setData({
-                hideLogin:false
-              })
-              
-            } else {
-              wx.navigateTo({
-                url: '/pages/user/user',
-              })
-
+            console.log()
+            if(res.statusCode === 200){
+              if (res.data.registerFlag) {
+                console.log("未注册过的用户")
+                that.setData({
+                  hideLogin:false
+                })
+                
+              } else {
+                wx.navigateTo({
+                  url: '/pages/user/user',
+                })
+  
+              }
+              wx.setStorageSync('openid', res.data.openid);
+            } else{
+              console.log("请求失败")
             }
-            wx.setStorageSync('openid', res.data.openid);
           },
           fail(res){
             console.log("请求失败")
@@ -75,6 +80,8 @@ Page({
   },
 
   bindGetUserInfo(e) {
+
+    var that = this;
     //用户点击允许授权
     if (e.detail.userInfo) {
       this.setData({
@@ -86,7 +93,11 @@ Page({
           if (res.authSetting['scope.userInfo']) {
             wx.getUserInfo({
               success: res => {
-                app.globalData.userInfo = res.userInfo
+                app.globalData.userInfo = res.userInfo;
+                console.log(app.globalData.userInfo);
+                that.setData({
+                  "user.nickname": res.userInfo.nickName
+                })
                 //业务代码
                 this.login()
               }
