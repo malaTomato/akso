@@ -1,5 +1,4 @@
 //index.js
-
 const {
   formatDate
 } = require("../../utils/util");
@@ -7,9 +6,7 @@ const {
 const app = getApp()
 
 Page({
-
-
-
+  
   data: {
     hideLogin: true,
 

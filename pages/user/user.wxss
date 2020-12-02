@@ -12,10 +12,51 @@
 } */
 
 
+
+.view{
+  background-color: black;
+}
+
 #head{
   box-shadow:0px 2px 5px 5px red;
 
 }
+
+
+
 van-divider--text {
   color: black;
+}
+
+.user .van-row {
+  border-radius: 8px;
+  background-color: #EEEEEE;
+}
+.user .van-cell{
+  background-color: #EEEEEE;
+}
+
+.date .van-row {
+  border-radius: 8px;
+  background-color: #EEEEEE;
+}
+.date .van-cell{
+  background-color: #EEEEEE;
+}
+.date .van-row{
+  border-radius: 8px;
+  
+}
+
+.question .van-row{
+  border-radius: 8px;
+  background-color: #EEEEEE;
+}
+
+.question .van-cell{
+  background-color: #EEEEEE;
+}
+.question .van-row{
+  border-radius: 8px;
+  
 }

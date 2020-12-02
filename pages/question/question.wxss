@@ -2,7 +2,9 @@
 .question{
   padding: 5%;
 }
-
+page{
+  color: white;
+}
 .title{
   font-weight: bold;
 }

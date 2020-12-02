@@ -1,7 +1,9 @@
 // pages/question/question.js
 const app = getApp()
 Page({
-
+  options: {
+    styleIsolation: 'shared',
+  },
   /**
    * 页面的初始数据
    */

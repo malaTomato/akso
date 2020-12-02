@@ -12,7 +12,10 @@ const {
 const app = getApp()
 
 Page({
-
+  options: {
+    styleIsolation: 'shared',
+  },
+  
   data: {
     date: '10/14',
     show: false,

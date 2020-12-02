@@ -36,7 +36,7 @@
       <p><b>我们需要获取您的授权信息，以提供更好的服务。</b></p>
     </view>
     <view class='btn_block'>
-      <button class='weui-btn' type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击确认授权</button>
+      <button class='weui-btn' ext-class='myclass'   type="primary" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击确认授权</button>
     </view>
   </view>
 </view>
