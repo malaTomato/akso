@@ -21,7 +21,10 @@
   box-shadow:0px 2px 5px 5px red;
 
 }
+page{
+  color: #797979;
 
+}
 
 
 van-divider--text {
@@ -31,6 +34,9 @@ van-divider--text {
 .user .van-row {
   border-radius: 8px;
   background-color: #EEEEEE;
+  margin-top: 20px;
+  padding: 1%;
+  margin: 4%;
 }
 .user .van-cell{
   background-color: #EEEEEE;
@@ -39,6 +45,9 @@ van-divider--text {
 .date .van-row {
   border-radius: 8px;
   background-color: #EEEEEE;
+  margin-top: 30px;
+  padding: 1%;
+  margin: 4%;
 }
 .date .van-cell{
   background-color: #EEEEEE;
@@ -48,13 +57,21 @@ van-divider--text {
   
 }
 
+.mydivider .van-divider{
+  color: #eeeeeeda;
+  font-size: large;
+} 
+
 .question .van-row{
   border-radius: 8px;
   background-color: #EEEEEE;
+  padding: 1%;
+  margin: 4%;
 }
 
 .question .van-cell{
   background-color: #EEEEEE;
+  padding: 3px;
 }
 .question .van-row{
   border-radius: 8px;

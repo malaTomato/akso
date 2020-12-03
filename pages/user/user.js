@@ -91,13 +91,18 @@ Page({
     'user': {
       "username": "",
       "phone": "",
-      "operationDate": "",
-      "reviewDate": ""
+      "operationDate": "2020-10-10",
+      "reviewDate": "2020-11-10"
     },
     'questionDtoList': [{
       'id': 1,
-      'title': ''
-    }],
+      'title': '《关系与大大 大大双大苏打阿萨大厦大苏打阿斯顿》'
+    },{
+      'id': 2,
+      'title': '《关系与大大 大大双大苏打阿萨大厦大苏打阿斯顿》'
+    }
+  
+  ],
     'informationDtoList': {
       'id': 1,
       'title': ''

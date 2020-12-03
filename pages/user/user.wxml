@@ -13,29 +13,39 @@
     </van-col>
   </van-row>
   <van-row class="date">
-    <van-cell-group>
-      <van-cell class="gray" span='8' title="手术日期" label="点击修改" value="{{ user.operationDate }}"
-        bind:click="onDisplay" />
-      <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
-      <van-cell class="gray" span='8' title="复查时间" value="{{user.reviewDate}}" border="{{ false }}" />
-    </van-cell-group>
+
+    <van-row>
+      <van-col span="22">
+        <van-cell  icon="calendar-o" title="手术日期" value="{{ user.operationDate }}" />
+      </van-col>
+      <van-col span="2">
+        <!-- <van-icon name="records" bind:click="onDisplay" size="28px" /> -->
+      </van-col>
+      <van-col span="22">
+        <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+        <van-cell icon="bulb-o" class="gray" span='8' title="复查时间" value="{{user.reviewDate}}" border="{{ false }}"
+          label="手术日期的一个月后" />
+
+
+      </van-col>
+
+    </van-row>
   </van-row>
-  <van-divider contentPosition="left">您有以下调查问卷尚未填写</van-divider>
+  <van-divider class="mydivider" contentPosition="left">您有以下调查问卷尚未填写</van-divider>
   <van-row class="question">
 
     <van-col span="24" id="mid">
 
       <van-notice-bar wx:if="{{flag}}" left-icon="volume-o" text="您有一张问卷尚未填写，请尽快填写" />
-      <van-cell-group wx:for-items="{{questionDtoList}}" wx:key="key">
-        <van-cell class="van-ellipsis" title="{{item.title}}" data-id="{{item.id}}" bindtap="toQuestion" />
-      </van-cell-group>
+      <van-cell wx:for-items="{{questionDtoList}}" wx:key="key" class="van-ellipsis" title="{{item.title}}"
+        data-id="{{item.id}}" bindtap="toQuestion" />
     </van-col>
   </van-row>
 
-  <van-divider contentPosition="left">健康小知识</van-divider>
+  <van-divider class="mydivider" contentPosition="left">健康小知识</van-divider>
 
   <van-row class="question">
-    
+
     <van-col span="24" id="boot">
 
       <van-cell-group wx:for="{{informationDtoList}}" wx:key="key">

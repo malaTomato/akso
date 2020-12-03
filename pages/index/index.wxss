@@ -5,10 +5,15 @@
   align-items: center;
 }
 
+
+page{
+  color: #797979;
+
+}
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
-  margin: 20rpx;
+  margin: 20rpx;  
   border-radius: 50%;
 }
 
@@ -28,6 +33,8 @@
   padding-left: 15%;
   padding-right: 15%;
   padding-bottom: 20%;
+  background-color: white;
+
 }
 .myclass{
   width: 200px;
