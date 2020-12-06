@@ -35,9 +35,24 @@ Page({
 
 
   onDisplay() {
-    this.setData({
-      show: true
+    let that = this;
+    wx.requestSubscribeMessage({
+      tmplIds: ['w2bcn5AT_EPBvZFX_O94AV2JTkgG5Xbz4xjf2eR3Y-0'],
+      success (res) {
+        console.log("订阅消息 成功 "+res);
+        that.setData({
+            show: true
+          });
+       },
+      fail :(res) =>{ 
+        console.log("订阅消息 失败 "+res);
+        console.log(res);
+      },
+      complete:(errMsg)=>{
+        console.log("订阅消息 完成 "+errMsg);
+      }
     });
+   
   },
   onClose() {
     this.setData({

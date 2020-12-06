@@ -19,7 +19,7 @@
         <van-cell  icon="calendar-o" title="手术日期" value="{{ user.operationDate }}" />
       </van-col>
       <van-col span="2">
-        <!-- <van-icon name="records" bind:click="onDisplay" size="28px" /> -->
+        <van-icon name="records" bind:click="onDisplay" color="red"  />
       </van-col>
       <van-col span="22">
         <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />

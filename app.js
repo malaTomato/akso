@@ -9,7 +9,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseUrl:"https://akso.test.utools.club"
+    baseUrl:"https://aksos.test.utools.club"
   }
 })
 

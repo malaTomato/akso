@@ -75,15 +75,35 @@ Page({
       }
     })
   },
+  sub(e){
+    let that = this;
+    wx.requestSubscribeMessage({
+        tmplIds: ['w2bcn5AT_EPBvZFX_O94AV2JTkgG5Xbz4xjf2eR3Y-0'],
+        success (res) {
+          console.log("订阅消息 成功 "+res);
+            that.login()
+         },
+        fail :(res) =>{ 
+          console.log("订阅消息 失败 "+res);
+          console.log(res);
+        },
+        complete:(errMsg)=>{
+          console.log("订阅消息 完成 "+errMsg);
+        }
+      });
 
+  }
+  ,
   bindGetUserInfo(e) {
-
+ 
     var that = this;
     //用户点击允许授权
     if (e.detail.userInfo) {
       this.setData({
         haveInfo: false
       })
+
+
       // 获取用户信息
       wx.getSetting({
         success: res => {
